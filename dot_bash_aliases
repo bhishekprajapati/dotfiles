@@ -25,3 +25,4 @@ alias la='lsd -A'
 alias l='lsd '
 
 alias ctc="xclip -selection clipboard"
+alias czm="chezmoi"
