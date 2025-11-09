@@ -36,27 +36,26 @@ str_is_empty() {
   fi
 }
 
-readonly OS="$(uname -s)"
-readonly ARCH="$(uname -m)"
-readonly NORMALIZED_OS="$(str_trim "$(str_to_lowercase "$OS")")"
-readonly NORMALIZED_ARCH="$(str_trim "$(str_to_lowercase "$ARCH")")"
-has_updated_apt=false
-
-update_apt() {
-  if [[ $has_updated_apt == false ]]; then
-    if maybe_sudo apt update; then
-      has_updated_apt=true
-    fi
-  fi
-}
-
 is_exec() {
   local -r name="$1"
   command -v "$name" >/dev/null 2>&1
 }
 
+os_release() {
+  local key="$1"
+  awk -F= -v k="^${key}=" '$0 ~ k { gsub(/"/, "", $2); print $2 }' /etc/os-release
+}
+
 os_is_linux() {
   if [[ "$NORMALIZED_OS" == "linux" ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+os_is_debian_linux() {
+  if [[ -f "/etc/debian_version" ]]; then
     return 0
   else
     return 1
@@ -209,7 +208,25 @@ install() {
   if has_installer "$installer_name"; then
     "$installer_name"
   else
-    log -e "No installer implemented"
+    log -e "No installer implemented for $bin_name"
+  fi
+}
+
+readonly OS="$(uname -s)"
+readonly ARCH="$(uname -m)"
+readonly NORMALIZED_OS="$(str_trim "$(str_to_lowercase "$OS")")"
+readonly NORMALIZED_ARCH="$(str_trim "$(str_to_lowercase "$ARCH")")"
+readonly OS_ID="$(str_trim $(str_to_lowercase $(os_release "ID")))"
+readonly OS_VERSION_ID="$(str_trim $(str_to_lowercase $(os_release "VERSION_ID")))"
+
+has_updated_apt=false
+
+update_apt() {
+  if [[ $has_updated_apt == false ]]; then
+    log -w "Requires elevated privileges to update APT repositories"
+    if maybe_sudo apt update; then
+      has_updated_apt=true
+    fi
   fi
 }
 
@@ -246,15 +263,17 @@ main() {
     done
   }
 
-  install_base_tools
+  run_prompt() {
+    local -r bins=("neovim" "go" "rust" "ripgrep" "lazygit")
+    selected=$(printf "%s\n" "${bins[@]}" | fzf --multi --prompt="Select binaries> ")
 
-  local -r bins=("neovim" "go" "rust" "ripgrep" "lazygit")
-  selected=$(printf "%s\n" "${bins[@]}" | fzf --multi --prompt="Select binaries> ")
+    local bin_name=""
+    for bin_name in $selected; do
+      install "$bin_name"
+    done
+  }
 
-  local bin_name=""
-  for bin_name in $selected; do
-    install "$bin_name"
-  done
+  install_base_tools && run_prompt
 }
 
 main
