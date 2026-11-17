@@ -1,0 +1,22 @@
+{
+  "runtime": {
+    "version": "LuaJIT",
+  },
+  "workspace": {
+    "library": [
+      "./hl.meta.lua"
+    ],
+    "checkThirdParty": false
+  },
+  "diagnostics": {
+    "globals": [
+      "hl"
+    ]
+  },
+  "hint": {
+    "enable": true
+  },
+  "completion": {
+    "callSnippet": "Replace",
+  }
+}
