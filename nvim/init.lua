@@ -1,4 +1,4 @@
-require("config.globals")
-require("config.options")
-require("config.keybinds")
-require("config.plugins")
+require("globals")
+require("options")
+require("keybinds")
+require("plugins")
