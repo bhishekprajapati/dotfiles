@@ -1,0 +1,3 @@
+layout splits
+launch
+launch --location=hsplit --bias=3 --dont-take-focus python3 /home/abhishek/.config/kitty/scripts/statusbar.py
