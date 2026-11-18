@@ -19,6 +19,7 @@ hl.on("hyprland.start", function()
     })
   end
 
+  exec("hyprctl hyprpaper")
   exec("walker --gapplication-service")
   exec(PROGRAMS.VPN)
   exec(PROGRAMS.TERMINAL)
