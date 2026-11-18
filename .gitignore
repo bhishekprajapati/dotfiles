@@ -1,0 +1,220 @@
+# =====================================================================
+# Public dotfiles — be paranoid. If unsure, it stays out.
+# =====================================================================
+
+# ---------------------------------------------------------------------
+# Backups / editor & OS leftovers
+# ---------------------------------------------------------------------
+*.bak
+*.bak-*
+*.bak.*
+*.backup
+*.old
+*.orig
+*.rej
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+\#*\#
+.#*
+.DS_Store
+Thumbs.db
+.directory
+.Trash-*
+
+# ---------------------------------------------------------------------
+# Env files & generic secret-looking names
+# ---------------------------------------------------------------------
+.env
+.env.*
+*.env
+.envrc
+!.env.example
+!*.env.example
+*secret*
+*Secret*
+*SECRET*
+*token*
+*Token*
+*TOKEN*
+*credential*
+*Credential*
+*password*
+*passwd*
+*apikey*
+*api_key*
+*api-key*
+*.private
+*.private.*
+private/
+secrets/
+.secrets/
+local.*
+*.local
+*.local.*
+
+# ---------------------------------------------------------------------
+# Keys, certificates, keystores
+# ---------------------------------------------------------------------
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.csr
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.kdbx
+*.gpg
+*.pgp
+*.asc
+*.sig
+*.ovpn
+*.mobileconfig
+id_rsa*
+id_dsa*
+id_ecdsa*
+id_ed25519*
+*.pub
+known_hosts*
+authorized_keys*
+
+# ---------------------------------------------------------------------
+# Whole config dirs that hold credentials / sessions — never track
+# ---------------------------------------------------------------------
+**/.ssh/
+**/ssh/
+**/.gnupg/
+**/gnupg/
+**/.aws/
+**/aws/
+**/.azure/
+**/gcloud/
+**/.kube/
+**/kube/
+**/.docker/config.json
+**/docker/config.json
+**/.terraform.d/credentials*
+**/gh/hosts.yml
+**/hub
+**/glab-cli/
+**/rclone/rclone.conf
+**/keyrings/
+**/password-store/
+**/.password-store/
+**/Bitwarden*/
+**/1Password/
+**/protonvpn/
+**/Proton/
+**/wireguard/
+**/NetworkManager/system-connections/
+**/syncthing/
+**/spotify/
+**/discord/
+**/Slack/
+**/BraveSoftware/
+**/chromium/
+**/google-chrome/
+**/mozilla/
+**/thunderbird/
+
+# Single credential files
+.netrc
+.npmrc
+.yarnrc
+.yarnrc.yml
+.pypirc
+.pgpass
+.my.cnf
+.git-credentials
+.gitconfig.local
+.s3cfg
+.boto
+.vault-token
+.cargo/credentials*
+**/cargo/credentials*
+.config/hub
+.wakatime.cfg
+.wakatime*
+
+# ---------------------------------------------------------------------
+# AI / tool state (often contains tokens, chats, project paths)
+# ---------------------------------------------------------------------
+.claude/
+.claude.json
+**/opencode/auth*
+**/github-copilot/
+**/copilot/
+**/.codeium/
+**/.cursor/
+**/.continue/
+**/.aider*
+
+# ---------------------------------------------------------------------
+# Shell history & session state
+# ---------------------------------------------------------------------
+*_history
+*history.txt
+*history.sqlite3*
+.histfile
+.lesshst
+.viminfo
+.python_history
+.node_repl_history
+.wget-hsts
+**/zoxide/
+**/atuin/
+**/nushell/history*
+**/fish/fish_variables
+**/fish_history
+
+# ---------------------------------------------------------------------
+# Neovim / editor runtime state
+# ---------------------------------------------------------------------
+**/nvim/shada/
+**/nvim/swap/
+**/nvim/undo/
+**/nvim/sessions/
+*.shada
+Session.vim
+.netrwhist
+tags
+.luarc.local.json
+
+# ---------------------------------------------------------------------
+# Runtime / cache / logs / databases
+# ---------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+node_modules/
+.cache/
+cache/
+*.cache
+*.log
+logs/
+*.pid
+*.sock
+*.sqlite
+*.sqlite3
+*.db
+*.db-*
+tmp/
+.tmp/
+
+# ---------------------------------------------------------------------
+# Archives & dumps (easy way to leak a whole directory)
+# ---------------------------------------------------------------------
+*.zip
+*.tar
+*.tar.*
+*.tgz
+*.gz
+*.7z
+*.rar
+*.dump
+core
+core.*
