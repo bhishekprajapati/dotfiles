@@ -5,8 +5,15 @@
 ---@field opts? vim.keymap.set.Opts
 
 ---@type KeyBind[]
-local map = {}
+local map = {
+  {
+    modes = "n",
+    lhs = "<leader>e",
+    rhs = vim.cmd.Ex,
+    opts = { desc = "Open File Explorer" },
+  },
+}
 
 for _, bind in ipairs(map) do
-	vim.keymap.set(bind.modes, bind.lhs, bind.rhs, bind.opts)
+  vim.keymap.set(bind.modes, bind.lhs, bind.rhs, bind.opts)
 end

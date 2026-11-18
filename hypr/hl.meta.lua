@@ -1467,7 +1467,6 @@ hl = {}
 ---@field ['xwayland.use_nearest_neighbor'] boolean
 local __HL_ConfigValueTypes = {}
 
-
 ---@class HL.ConfigOpt
 ---@field general? HL.ConfigOpt.General
 ---@field decoration? HL.ConfigOpt.Decoration

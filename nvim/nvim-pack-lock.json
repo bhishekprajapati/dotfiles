@@ -1,0 +1,12 @@
+{
+  "plugins": {
+    "fff": {
+      "rev": "ab3002a9bfbef53874dd0b56608e34d281791b4c",
+      "src": "https://github.com/dmtrKovalenko/fff"
+    },
+    "oil.nvim": {
+      "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
+      "src": "https://github.com/stevearc/oil.nvim"
+    }
+  }
+}

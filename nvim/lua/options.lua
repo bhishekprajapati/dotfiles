@@ -8,4 +8,9 @@ vim.opt.pumheight = 12
 vim.opt.scrolloff = 6
 vim.opt.title = true
 vim.opt.titlestring = "%t — nvim"
-vim.opt.fillchars:append({ eob = " ", vert = "│", horiz = "─", diff = "╱" })
+vim.opt.fillchars:append({
+  eob = " ",
+  vert = "│",
+  horiz = "─",
+  diff = "╱",
+})
