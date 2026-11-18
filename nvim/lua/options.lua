@@ -1,3 +1,4 @@
+vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.showtabline = 2
 vim.opt.laststatus = 3
