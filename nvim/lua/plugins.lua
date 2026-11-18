@@ -26,9 +26,20 @@ local plugins = {
   },
 
   {
+    repo = "https://github.com/nvim-mini/mini.icons",
+    setup = function()
+      require("mini.icons").setup()
+    end,
+  },
+
+  {
     repo = "https://github.com/stevearc/oil.nvim",
     setup = function()
-      require("oil").setup()
+      require("oil").setup({
+        columns = {
+          "icon",
+        },
+      })
       vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>", {
         desc = "Open Oil",
       })

@@ -4,6 +4,10 @@
       "rev": "ab3002a9bfbef53874dd0b56608e34d281791b4c",
       "src": "https://github.com/dmtrKovalenko/fff"
     },
+    "mini.icons": {
+      "rev": "fc90b3925a2a68282be06e28cfe0cbb366c75dad",
+      "src": "https://github.com/nvim-mini/mini.icons"
+    },
     "oil.nvim": {
       "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
       "src": "https://github.com/stevearc/oil.nvim"
