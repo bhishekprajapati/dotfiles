@@ -1,8 +1,9 @@
 [tools]
 node = "24"
-bun = "1"
+bun = "latest"
 gh = "latest"
 stylua = "latest"
+"npm:typescript" = "latest"
 
 [hooks]
 postinstall = "pnpm -v || npm i -g pnpm"
