@@ -1,4 +1,6 @@
 require("globals")
 require("options")
+require("colorschemes")
 require("keybinds")
+require("autocmds")
 require("plugins")
