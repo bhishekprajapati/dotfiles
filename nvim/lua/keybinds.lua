@@ -12,6 +12,20 @@ local map = {
     rhs = vim.cmd.Ex,
     opts = { desc = "Open File Explorer" },
   },
+
+  {
+    modes = "n",
+    lhs = "<C-s>",
+    rhs = "<cmd>write<cr>",
+    opts = { desc = "Save Buffer" },
+  },
+
+  {
+    modes = "i",
+    lhs = "<C-s>",
+    rhs = "<Esc><cmd>write<cr>",
+    opts = { desc = "Save Buffer" },
+  },
 }
 
 for _, bind in ipairs(map) do
