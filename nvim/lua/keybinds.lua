@@ -26,6 +26,13 @@ local map = {
     rhs = "<Esc><cmd>write<cr>",
     opts = { desc = "Save Buffer" },
   },
+
+  {
+    modes = "i",
+    lhs = "jj",
+    rhs = "<Esc>",
+    opts = { desc = "Switch to Normal Mode" },
+  },
 }
 
 for _, bind in ipairs(map) do
