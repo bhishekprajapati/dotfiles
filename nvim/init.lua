@@ -12,18 +12,13 @@ require("utils").loader(
   }
 )
 
-require("utils").loader(
-  vim.fn.stdpath("config") .. "/lua/colorschemes",
-  function(filename)
-    return "colorschemes." .. filename
-  end
-)
-
-require("utils").loader(
-  vim.fn.stdpath("config") .. "/lua/plugins",
-  function(filename)
-    return "plugins." .. filename
-  end
-)
+for _, dir in ipairs({ "plugins", "colorschemes" }) do
+  require("utils").loader(
+    vim.fn.stdpath("config") .. "/lua/" .. dir,
+    function(filename)
+      return dir .. "." .. filename
+    end
+  )
+end
 
 vim.cmd.colorscheme("catppuccin")

@@ -1,4 +1,4 @@
-return {
+return DefineLoaderSpec({
   "https://github.com/catppuccin/nvim",
   name = "catppuccin",
   setup = function()
@@ -7,4 +7,4 @@ return {
       transparent_background = true,
     })
   end,
-}
+})

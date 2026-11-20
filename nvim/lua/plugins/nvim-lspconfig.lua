@@ -1,5 +1,6 @@
-return {
+return DefineLoaderSpec({
   "https://github.com/neovim/nvim-lspconfig",
+  name = "nvim-lspconfig",
   setup = function()
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
@@ -25,4 +26,4 @@ return {
       vim.lsp.completion.get()
     end)
   end,
-}
+})

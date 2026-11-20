@@ -1,5 +1,6 @@
-return {
+return DefineLoaderSpec({
   "https://github.com/stevearc/oil.nvim",
+  name = "oil",
   setup = function()
     require("oil").setup({
       columns = {
@@ -11,4 +12,4 @@ return {
 
     vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open Oil" })
   end,
-}
+})

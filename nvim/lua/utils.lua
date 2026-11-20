@@ -27,6 +27,17 @@ function M.is_func(value)
   return nil
 end
 
+---@class LoaderSpec
+---@field [1] string github url
+---@field name string plugin name
+---@field setup function?
+
+---@param spec LoaderSpec
+---@return LoaderSpec
+function M.define_loader_spec(spec)
+  return spec
+end
+
 ---@class LoaderOptions
 ---@field load_only boolean? default false
 

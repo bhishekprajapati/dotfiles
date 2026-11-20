@@ -1,5 +1,6 @@
-return {
+return DefineLoaderSpec({
   "https://github.com/dmtrKovalenko/fff",
+  name = "fff",
   setup = function()
     vim.api.nvim_create_autocmd("PackChanged", {
       callback = function(ev)
@@ -22,4 +23,4 @@ return {
       require("fff").find_files()
     end, { desc = "Find files" })
   end,
-}
+})

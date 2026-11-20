@@ -8,25 +8,17 @@
       "rev": "ab3002a9bfbef53874dd0b56608e34d281791b4c",
       "src": "https://github.com/dmtrKovalenko/fff"
     },
-    "mini.icons": {
-      "rev": "fc90b3925a2a68282be06e28cfe0cbb366c75dad",
+    "mini-icons": {
+      "rev": "5d58117d176c133f4cb5585ec8cb3450881c89a0",
       "src": "https://github.com/nvim-mini/mini.icons"
-    },
-    "nvim": {
-      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
-      "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-lspconfig": {
       "rev": "4648fd8ba5c678d7e2db75ae44ffac269bb589d8",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
-    "oil.nvim": {
+    "oil": {
       "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
       "src": "https://github.com/stevearc/oil.nvim"
-    },
-    "snacks.nvim": {
-      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
-      "src": "https://github.com/folke/snacks.nvim"
     }
   }
 }
