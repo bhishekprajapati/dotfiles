@@ -1,6 +1,4 @@
----@alias KeyBind [string, string, string|function, vim.keymap.set.Opts?]
-
----@type KeyBind[]
+---@type { [1]: string, [2]: string, [3]: string|function, [4]: vim.keymap.set.Opts? }[]
 local map = {
   { "n", "<leader>e", vim.cmd.Ex, { desc = "Open File Explorer" } },
   { "n", "<C-s>", "<cmd>write<cr>", { desc = "Save Buffer" } },
