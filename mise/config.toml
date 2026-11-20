@@ -9,7 +9,8 @@ stylua = "2.6.0"
 "glow" = "latest"
 "github:sharkdp/bat" = "latest"
 "github:neovim/neovim" = "0.12.6"
-
+rust = "stable"
+"cargo:nu" = "latest"
 
 [hooks]
 postinstall = "pnpm -v || npm i -g pnpm"
