@@ -39,30 +39,38 @@ function M.loader(dir, require_path, loader_opts)
   for filepath, filetype in vim.fs.dir(dir) do
     local ext = vim.fs.ext(filepath)
 
-    if filetype == "file" and ext == "lua" then
-      local filename = filepath:sub(1, #filepath - 4)
-      local mod = M.is_table(require(require_path(filename)))
-
-      if (not opts["load_only"]) and mod then
-        local src = M.is_string(mod[1])
-        local name = M.is_string(mod["name"])
-
-        if src then
-          local spec = { src = src }
-
-          if name then
-            spec["name"] = name
-          end
-
-          vim.pack.add({ spec })
-          local setup = M.is_func(mod["setup"])
-
-          if setup then
-            setup()
-          end
-        end
-      end
+    if filetype ~= "file" and ext ~= "lua" then
+      goto continue
     end
+
+    local filename = filepath:sub(1, #filepath - 4)
+    local mod = M.is_table(require(require_path(filename)))
+
+    if opts["load_only"] or not mod then
+      goto continue
+    end
+
+    local src = M.is_string(mod[1])
+    local name = M.is_string(mod["name"])
+
+    if not src then
+      goto continue
+    end
+
+    local spec = { src = src }
+
+    if name then
+      spec["name"] = name
+    end
+
+    vim.pack.add({ spec })
+    local setup = M.is_func(mod["setup"])
+
+    if setup then
+      setup()
+    end
+
+    ::continue::
   end
 end
 
