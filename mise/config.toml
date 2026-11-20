@@ -4,7 +4,11 @@ bun = "latest"
 gh = "latest"
 stylua = "latest"
 "npm:typescript" = "latest"
-"starship" = "1.27.0"
+"starship" = "latest"
+"zoxide" = "latest"
+"glow" = "latest"
+"github:sharkdp/bat" = "latest"
+"github:neovim/neovim" = "0.12.6"
 
 [hooks]
 postinstall = "pnpm -v || npm i -g pnpm"
