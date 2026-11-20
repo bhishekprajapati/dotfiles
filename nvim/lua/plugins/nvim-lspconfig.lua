@@ -20,6 +20,16 @@ return DefineLoaderSpec({
       "jsonls",
       "tsc",
       "lua_ls",
+      "stylua",
+      "oxfmt",
+      "bashls",
+      "nushell",
+      "rumdl",
+      "taplo",
+      "yamlls",
+      "cssls",
+      "html",
+      "hyprls",
     })
 
     vim.keymap.set("i", "<C-Space>", function()

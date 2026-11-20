@@ -9,12 +9,15 @@ stylua = "2.6.0"
 
 "github:sharkdp/bat" = "latest"
 "github:neovim/neovim" = "0.12.6"
+"github:nushell/nufmt" = "latest"
 
 rust = "stable"
 "cargo:nu" = "latest"
 
+
 "npm:typescript" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
+"npm:oxfmt" = "latest"
 
 [hooks]
 postinstall = "pnpm -v || npm i -g pnpm"
