@@ -2,7 +2,7 @@
 node = "24"
 bun = "latest"
 gh = "latest"
-stylua = "latest"
+stylua = "2.6.0"
 "npm:typescript" = "latest"
 "starship" = "latest"
 "zoxide" = "latest"
