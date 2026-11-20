@@ -1,0 +1,246 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[╭─](overlay)\
+[](fg:layer1)\
+$os\
+$username\
+[](fg:layer1 bg:layer2)\
+$directory\
+[](fg:layer2 bg:layer3)\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+[](fg:layer3 bg:layer4)\
+$c\
+$lua\
+$python\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$bun\
+$nim\
+$rust\
+$scala\
+$docker_context\
+$nix_shell\
+[](fg:layer4)\
+$line_break\
+[╰─](overlay)\
+$character"""
+
+right_format = """
+$cmd_duration\
+$status\
+$jobs\
+[](fg:surface)\
+$time\
+[](fg:surface)"""
+
+add_newline = true
+palette = "nebula"
+
+[palettes.nebula]
+void    = "#0a0a18"
+surface = "#14142b"
+layer1  = "#2c2a4a"
+layer2  = "#272643"
+layer3  = "#23223c"
+layer4  = "#1e1d35"
+overlay = "#23223f"
+text    = "#d6d4e8"
+muted   = "#8b88a8"
+blue    = "#4f7cff"
+cyan    = "#2dd4e6"
+magenta = "#d946ef"
+pink    = "#f472e0"
+green   = "#34d399"
+yellow  = "#f2c14e"
+red     = "#ff4d6d"
+
+[line_break]
+disabled = false
+
+[os]
+disabled = false
+style = "bg:layer1 fg:blue"
+format = "[$symbol ]($style)"
+
+[os.symbols]
+Arch = ""
+Debian = ""
+Ubuntu = ""
+Fedora = ""
+Alpine = ""
+NixOS = ""
+Raspbian = ""
+Macos = ""
+Windows = ""
+Linux = ""
+
+[username]
+show_always = true
+style_user = "bg:layer1 fg:text bold"
+style_root = "bg:layer1 fg:red bold"
+format = "[$user ]($style)"
+
+[directory]
+style = "bg:layer2 fg:blue bold"
+format = "[  $path ]($style)[$read_only]($read_only_style)"
+home_symbol = "~"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = true
+read_only = " "
+read_only_style = "bg:layer2 fg:red bold"
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Videos" = " "
+".config" = " "
+"dotfiles" = " dotfiles"
+"Projects" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:layer3 fg:green bold"
+format = "[ $symbol $branch(:$remote_branch) ]($style)"
+
+[git_commit]
+style = "bg:layer3 fg:cyan"
+format = "[ $hash$tag ]($style)"
+tag_symbol = "  "
+
+[git_state]
+style = "bg:layer3 fg:yellow bold"
+format = "[\\($state( $progress_current/$progress_total)\\) ]($style)"
+
+[git_status]
+style = "bg:layer3 fg:pink"
+format = "[($all_status$ahead_behind)]($style)"
+conflicted = " ${count} "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+up_to_date = ""
+untracked = "?${count} "
+stashed = " ${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+
+[c]
+symbol = ""
+style = "bg:layer4 fg:cyan"
+format = "[ $symbol( $version) ]($style)"
+
+[lua]
+symbol = ""
+style = "bg:layer4 fg:blue"
+format = "[ $symbol( $version) ]($style)"
+
+[python]
+symbol = ""
+style = "bg:layer4 fg:yellow"
+format = "[ $symbol( $version)( \\($virtualenv\\)) ]($style)"
+
+[elixir]
+symbol = ""
+style = "bg:layer4 fg:magenta"
+format = "[ $symbol( $version) ]($style)"
+
+[elm]
+symbol = ""
+style = "bg:layer4 fg:cyan"
+format = "[ $symbol( $version) ]($style)"
+
+[golang]
+symbol = ""
+style = "bg:layer4 fg:cyan"
+format = "[ $symbol( $version) ]($style)"
+
+[haskell]
+symbol = ""
+style = "bg:layer4 fg:magenta"
+format = "[ $symbol( $version) ]($style)"
+
+[java]
+symbol = ""
+style = "bg:layer4 fg:red"
+format = "[ $symbol( $version) ]($style)"
+
+[julia]
+symbol = ""
+style = "bg:layer4 fg:magenta"
+format = "[ $symbol( $version) ]($style)"
+
+[nodejs]
+symbol = ""
+style = "bg:layer4 fg:green"
+format = "[ $symbol( $version) ]($style)"
+
+[bun]
+symbol = "bun"
+style = "bg:layer4 fg:pink"
+format = "[ $symbol( $version) ]($style)"
+
+[nim]
+symbol = ""
+style = "bg:layer4 fg:yellow"
+format = "[ $symbol( $version) ]($style)"
+
+[rust]
+symbol = ""
+style = "bg:layer4 fg:red"
+format = "[ $symbol( $version) ]($style)"
+
+[scala]
+symbol = ""
+style = "bg:layer4 fg:red"
+format = "[ $symbol( $version) ]($style)"
+
+[docker_context]
+symbol = ""
+style = "bg:layer4 fg:blue"
+format = "[ $symbol $context ]($style)"
+
+[nix_shell]
+symbol = ""
+style = "bg:layer4 fg:blue"
+format = "[ $symbol $state ]($style)"
+
+[character]
+success_symbol = "[❯](bold magenta)[❯](bold blue)"
+error_symbol = "[❯❯](bold red)"
+vimcmd_symbol = "[❮❮](bold green)"
+
+[cmd_duration]
+min_time = 500
+style = "fg:yellow"
+format = "[ $duration]($style) "
+
+[status]
+disabled = false
+style = "fg:red bold"
+symbol = "✘ "
+format = "[$symbol$status]($style) "
+
+[jobs]
+symbol = " "
+style = "fg:cyan bold"
+format = "[$symbol$number]($style) "
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:surface fg:muted"
+format = "[ $time]($style)"

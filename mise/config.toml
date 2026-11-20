@@ -4,6 +4,7 @@ bun = "latest"
 gh = "latest"
 stylua = "latest"
 "npm:typescript" = "latest"
+"starship" = "1.27.0"
 
 [hooks]
 postinstall = "pnpm -v || npm i -g pnpm"
