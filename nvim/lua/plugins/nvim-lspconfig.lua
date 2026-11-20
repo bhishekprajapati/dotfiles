@@ -17,7 +17,7 @@ return DefineLoaderSpec({
     vim.opt.completeopt = { "menu", "menuone", "noinsert" }
 
     vim.lsp.enable({
-      "json_ls",
+      "jsonls",
       "tsc",
       "lua_ls",
     })
