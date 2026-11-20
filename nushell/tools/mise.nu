@@ -16,7 +16,6 @@ def --env "update-env" [] {
   }
 }
 export-env {
-  
   '' | parse vars | update-env
   $env.MISE_SHELL = "nu"
   let mise_hook = {
@@ -27,21 +26,21 @@ export-env {
   add-hook hooks.env_change.PWD $mise_hook
 }
 
-def --env add-hook [field: cell-path new_hook: any] {
+def --env add-hook [field: cell-path, new_hook] {
   let field = $field | split cell-path | update optional true | into cell-path
   let old_config = $env.config? | default {}
   let old_hooks = $old_config | get $field | default []
   $env.config = ($old_config | upsert $field ($old_hooks ++ [$new_hook]))
 }
 
-export def --env --wrapped main [command?: string, --help, ...rest: string] {
+export def --env --wrapped main [command?: string, ...rest: string] {
   let commands = ["deactivate", "shell", "sh"]
 
-  if ($command == null) {
+  if $command == null {
     ^"/home/abhishek/.local/bin/mise"
-  } else if ($command == "activate") {
+  } else if $command == "activate" {
     $env.MISE_SHELL = "nu"
-  } else if ($command in $commands) {
+  } else if $command in $commands {
     ^"/home/abhishek/.local/bin/mise" $command ...$rest
     | parse vars
     | update-env
@@ -52,7 +51,6 @@ export def --env --wrapped main [command?: string, --help, ...rest: string] {
 
 def --env mise_hook [] {
   ^"/home/abhishek/.local/bin/mise" hook-env -s nu
-    | parse vars
-    | update-env
+  | parse vars
+  | update-env
 }
-

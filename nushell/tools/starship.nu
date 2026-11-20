@@ -12,7 +12,14 @@ module completions {
   ]
 
   def "nu-complete starship completions shell" [] {
-    [ "bash" "elvish" "fish" "nushell" "powershell" "zsh" ]
+    [
+      "bash"
+      "elvish"
+      "fish"
+      "nushell"
+      "powershell"
+      "zsh"
+    ]
   }
 
   # Generate starship shell completions for your shell to stdout
@@ -66,7 +73,20 @@ module completions {
   ]
 
   def "nu-complete starship preset name" [] {
-    [ "bracketed-segments" "catppuccin-powerline" "gruvbox-rainbow" "jetpack" "nerd-font-symbols" "no-empty-icons" "no-nerd-font" "no-runtime-versions" "pastel-powerline" "plain-text-symbols" "pure-preset" "tokyo-night" ]
+    [
+      "bracketed-segments"
+      "catppuccin-powerline"
+      "gruvbox-rainbow"
+      "jetpack"
+      "nerd-font-symbols"
+      "no-empty-icons"
+      "no-nerd-font"
+      "no-runtime-versions"
+      "pastel-powerline"
+      "plain-text-symbols"
+      "pure-preset"
+      "tokyo-night"
+    ]
   }
 
   # Prints a preset config
@@ -108,7 +128,7 @@ module completions {
   ]
 
   def "nu-complete starship statusline provider" [] {
-    [ "claude-code" ]
+    ["claude-code"]
   }
 
   # Prints the statusline with a specific profile
@@ -216,7 +236,6 @@ module completions {
   # Print this message or the help of the given subcommand(s)
   export extern "starship help help" [
   ]
-
 }
 
 export use completions *
@@ -225,7 +244,9 @@ export use completions *
 # - overlay which can be loaded with `overlay use starship.nu`
 # - module which can be used with `use starship.nu`
 # - script which can be used with `source starship.nu`
-export-env { $env.STARSHIP_SHELL = "nu"; load-env {
+export-env {
+  $env.STARSHIP_SHELL = "nu"
+  load-env {
     STARSHIP_SESSION_KEY: (random chars -l 16)
     PROMPT_MULTILINE_INDICATOR: (
         ^/home/abhishek/.local/share/mise/installs/starship/1.27.0/.mise-bins/starship prompt --continuation
@@ -277,4 +298,5 @@ export-env { $env.STARSHIP_SHELL = "nu"; load-env {
                 )
         )
     }
-}}
+}
+}
