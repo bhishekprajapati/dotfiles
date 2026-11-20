@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "prepare": "lefthook install",
-    "format": "stylua ."
+    "format": "stylua . && nufmt nushell && oxfmt $(git ls-files '*.toml' ':!nushell/nu_scripts')"
   },
   "lint-staged": {
     "*.lua": "stylua",
